@@ -1,6 +1,6 @@
 {
   "buildCommand": "cd luckyy && npm run build",
-  "installCommand": "npm install && cd luckyy && npm install",
+  "installCommand": "cd luckyy && npm install",
   "outputDirectory": "luckyy/dist",
   "rewrites": [
     {
