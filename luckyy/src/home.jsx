@@ -24,46 +24,59 @@ const Home = () => {
     ];
 
     const number = validNumbers[Math.floor(Math.random() * validNumbers.length)];
-    const newDigits = number.split('');
+    const targetDigits = number.split('');
 
-    newDigits.forEach((digit, index) => {
-      setTimeout(() => {
-        let interval = setInterval(() => {
-          setDigits((prevDigits) => {
-            const newDigits = [...prevDigits];
-            newDigits[index] = Math.floor(Math.random() * 10).toString();
-            return newDigits;
-          });
-        }, 100);
+    const spinInterval = setInterval(() => {
+      setDigits((prevDigits) => prevDigits.map(() => Math.floor(Math.random() * 10).toString()));
+    }, 90);
 
-        setTimeout(() => {
-          clearInterval(interval);
-          setDigits((prevDigits) => {
-            const newDigits = [...prevDigits];
-            newDigits[index] = digit;
-            return newDigits;
-          });
-
-          if (index === newDigits.length - 1) {
-            setShowPartyPoppers(true);
-          }
-        }, 1000 + index * 500);
-      }, index * 500);
-    });
+    setTimeout(() => {
+      clearInterval(spinInterval);
+      setDigits(targetDigits);
+      setShowPartyPoppers(true);
+    }, 1400);
   };
 
   return (
-    <div className="container">
-      <h1>OCYM Paliakara St. George Orthodox Church</h1>
-      <h1>Lucky Draw</h1>
-      <button onClick={generateLuckyNumber}>Generate Lucky Number</button>
-      <div className="number-container">
-        {digits.map((digit, index) => (
-          <div key={index} className="digit-box">
-            {digit}
+    <div className="page">
+      <div className="ambient ambient-one" aria-hidden></div>
+      <div className="ambient ambient-two" aria-hidden></div>
+
+      <header className="hero">
+        <div className=""><img src='../src/assets/ocym-shiels.png' alt="OCYM Shield" height={150} /></div>
+        <div>
+          <p className="eyebrow">Paliakara St. George Orthodox Church</p>
+          <h1 className="headline">Annual Lucky Draw</h1>
+          <p className="subhead">Tap the button to unveil the next winning ticket. Every roll stays true to the configured draw ranges.</p>
+        </div>
+      </header>
+
+      <main className="card">
+        <div className="card-top">
+          <div>
+            <p className="label">Current draw</p>
+            <h2 className="draw-title">Live selection</h2>
           </div>
-        ))}
-      </div>
+          <span className="status-pill"></span>
+        </div>
+
+        <div className="number-panel">
+          {digits.map((digit, index) => (
+            <div key={index} className="digit-tile">
+              <span>{digit}</span>
+            </div>
+          ))}
+        </div>
+
+        <button className="cta" onClick={generateLuckyNumber}>
+          Generate lucky number
+        </button>
+
+        <p className="helper">Results are randomized within your preset ticket ranges. Share the screen when the confetti pops!</p>
+      </main>
+
+      <footer className="footnote">Powered by the OCYM community • Transparency first</footer>
+
       {showPartyPoppers && (
         <>
           <div className="party-popper left"></div>
