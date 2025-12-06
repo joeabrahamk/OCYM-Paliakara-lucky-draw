@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd luckyy && npm run build",
+  "installCommand": "npm install && cd luckyy && npm install",
+  "outputDirectory": "luckyy/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
