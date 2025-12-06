@@ -43,7 +43,7 @@ const Home = () => {
       <div className="ambient ambient-two" aria-hidden></div>
 
       <header className="hero">
-        <div className=""><img src='../public/ocym-shiels.png' alt="OCYM Shield" height={150} /></div>
+        <div className=""><img src="/ocym-shiels.png" alt="OCYM Shield" height={150} /></div>
         <div>
           <p className="eyebrow">Paliakara St. George Orthodox Church</p>
           <h1 className="headline">Annual Lucky Draw</h1>
