@@ -75,7 +75,10 @@ const Home = () => {
         <p className="helper">Results are randomized within your preset ticket ranges. Share the screen when the confetti pops!</p>
       </main>
 
-      <footer className="footnote">Powered by the OCYM community • Transparency first</footer>
+      <footer className="footnote">
+        <p>© 2025 OCYM Paliakara. All rights reserved</p>
+        <p>Developed with ♥ Joe Abraham K </p>
+      </footer>
 
       {showPartyPoppers && (
         <>

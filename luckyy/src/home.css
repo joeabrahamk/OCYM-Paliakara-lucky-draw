@@ -9,7 +9,6 @@
   justify-content: center;
   overflow: hidden;
   isolation: isolate;
-  height: 100vh;
 }
 
 .ambient {
@@ -40,7 +39,6 @@
   align-items: center;
   justify-content: space-around;
   
-  padding-top: 13vh;
 }
 
 .brand {
