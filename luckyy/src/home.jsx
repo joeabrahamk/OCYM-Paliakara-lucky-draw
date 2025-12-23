@@ -4,6 +4,39 @@ import './home.css';
 const Home = () => {
   const [digits, setDigits] = useState(['0', '0', '0', '0']);
   const [showPartyPoppers, setShowPartyPoppers] = useState(false);
+  const [bookNumber, setBookNumber] = useState(null);
+
+  // Book number to coupon range mapping
+  const bookRanges = [
+    { book: 1, start: 1001, end: 1050 },
+    { book: 2, start: 1051, end: 1100 },
+    { book: 3, start: 1101, end: 1150 },
+    { book: 4, start: 1151, end: 1161 },
+    { book: 5, start: 1201, end: 1250 },
+    { book: 7, start: 1301, end: 1350 },
+    { book: 8, start: 1351, end: 1400 },
+    { book: 9, start: 1401, end: 1450 },
+    { book: 10, start: 1451, end: 1500 },
+    { book: 13, start: 1601, end: 1650 },
+    { book: 14, start: 1651, end: 1700 },
+    { book: 16, start: 1751, end: 1800 },
+    { book: 17, start: 1801, end: 1820 },
+    { book: 18, start: 1850, end: 1861 },
+    { book: 19, start: 1901, end: 1950 },
+    { book: 20, start: 1951, end: 2000 },
+    { book: 21, start: 2001, end: 2050 },
+    { book: 22, start: 2051, end: 2100 },
+    { book: 23, start: 2101, end: 2150 },
+    { book: 25, start: 2201, end: 2250 },
+    { book: 27, start: 2301, end: 2350 },
+    { book: 28, start: 2351, end: 2400 },
+  ];
+
+  const getBookNumber = (couponNumber) => {
+    const num = parseInt(couponNumber, 10);
+    const range = bookRanges.find(r => num >= r.start && num <= r.end);
+    return range ? range.book : null;
+  };
 
   const generateLuckyNumber = () => {
     setShowPartyPoppers(false);
@@ -63,8 +96,15 @@ const Home = () => {
     setTimeout(() => {
       clearInterval(spinInterval);
       setDigits(targetDigits);
+      setBookNumber(getBookNumber(number));
       setShowPartyPoppers(true);
     }, 1400);
+  };
+
+  const resetNumber = () => {
+    setDigits(['0', '0', '0', '0']);
+    setBookNumber(null);
+    setShowPartyPoppers(false);
   };
 
   return (
@@ -98,9 +138,21 @@ const Home = () => {
           ))}
         </div>
 
-        <button className="cta" onClick={generateLuckyNumber}>
-          Generate lucky number
-        </button>
+        {bookNumber !== null && (
+          <div className="book-number-display">
+            <span className="book-label">Book No:</span>
+            <span className="book-value">{bookNumber}</span>
+          </div>
+        )}
+
+        <div className="button-group">
+          <button className="cta" onClick={generateLuckyNumber}>
+            Generate lucky number
+          </button>
+          <button className="cta-reset" onClick={resetNumber}>
+            Reset
+          </button>
+        </div>
 
         <p className="helper">Results are randomized within your preset ticket ranges. Share the screen when the confetti pops!</p>
       </main>
