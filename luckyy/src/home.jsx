@@ -9,18 +9,48 @@ const Home = () => {
     setShowPartyPoppers(false);
 
     const validNumbers = [
-      ...Array.from({ length: 341 }, (_, i) => (101 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 99 }, (_, i) => (450 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 173 }, (_, i) => (551 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 208 }, (_, i) => (751 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 254 }, (_, i) => (983 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 89 }, (_, i) => (1251 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 35 }, (_, i) => (1351 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 94 }, (_, i) => (1401 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 16 }, (_, i) => (1501 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 55 }, (_, i) => (1551 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 31 }, (_, i) => (1651 + i).toString().padStart(4, '0')),
-      ...Array.from({ length: 150 }, (_, i) => (1701 + i).toString().padStart(4, '0'))
+      // 1001-1050
+      ...Array.from({ length: 50 }, (_, i) => (1001 + i).toString().padStart(4, '0')),
+      // 1051-1100
+      ...Array.from({ length: 50 }, (_, i) => (1051 + i).toString().padStart(4, '0')),
+      // 1101-1150
+      ...Array.from({ length: 50 }, (_, i) => (1101 + i).toString().padStart(4, '0')),
+      // 1151-1161
+      ...Array.from({ length: 11 }, (_, i) => (1151 + i).toString().padStart(4, '0')),
+      // 1201-1250
+      ...Array.from({ length: 50 }, (_, i) => (1201 + i).toString().padStart(4, '0')),
+      // 1301-1350
+      ...Array.from({ length: 50 }, (_, i) => (1301 + i).toString().padStart(4, '0')),
+      // 1351-1400
+      ...Array.from({ length: 50 }, (_, i) => (1351 + i).toString().padStart(4, '0')),
+      // 1401-1450
+      ...Array.from({ length: 50 }, (_, i) => (1401 + i).toString().padStart(4, '0')),
+      // 1451-1500
+      ...Array.from({ length: 50 }, (_, i) => (1451 + i).toString().padStart(4, '0')),
+      // 1601-1650
+      ...Array.from({ length: 50 }, (_, i) => (1601 + i).toString().padStart(4, '0')),
+      // 1651-1700
+      ...Array.from({ length: 50 }, (_, i) => (1651 + i).toString().padStart(4, '0')),
+      // 1751-1800
+      ...Array.from({ length: 50 }, (_, i) => (1751 + i).toString().padStart(4, '0')),
+      // 1801-1820 special case 1850 added to next range.
+      ...Array.from({ length: 20 }, (_, i) => (1801 + i).toString().padStart(4, '0')),
+      // 1850-1861
+      ...Array.from({ length: 12 }, (_, i) => (1850 + i).toString().padStart(4, '0')),
+      // 1951-2000
+      ...Array.from({ length: 50 }, (_, i) => (1951 + i).toString().padStart(4, '0')),
+      // 2001-2050
+      ...Array.from({ length: 50 }, (_, i) => (2001 + i).toString().padStart(4, '0')),
+      // 2051-2100
+      ...Array.from({ length: 50 }, (_, i) => (2051 + i).toString().padStart(4, '0')),
+      // 2101-2150
+      ...Array.from({ length: 50 }, (_, i) => (2101 + i).toString().padStart(4, '0')),
+      // 2201-2250
+      ...Array.from({ length: 50 }, (_, i) => (2201 + i).toString().padStart(4, '0')),
+      // 2301-2350
+      ...Array.from({ length: 50 }, (_, i) => (2301 + i).toString().padStart(4, '0')),
+      // 2351-2400
+      ...Array.from({ length: 50 }, (_, i) => (2351 + i).toString().padStart(4, '0')),
     ];
 
     const number = validNumbers[Math.floor(Math.random() * validNumbers.length)];
