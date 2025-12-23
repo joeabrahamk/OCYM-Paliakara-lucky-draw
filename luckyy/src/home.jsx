@@ -13,23 +13,31 @@ const Home = () => {
     { book: 3, start: 1101, end: 1150 },
     { book: 4, start: 1151, end: 1161 },
     { book: 5, start: 1201, end: 1250 },
+    { book: 6, start: 1251, end: 1286 },
     { book: 7, start: 1301, end: 1350 },
     { book: 8, start: 1351, end: 1400 },
     { book: 9, start: 1401, end: 1450 },
     { book: 10, start: 1451, end: 1500 },
+    { book: 11, start: 1501, end: 1550 },
+    { book: 12, start: 1551, end: 1586 },
     { book: 13, start: 1601, end: 1650 },
     { book: 14, start: 1651, end: 1700 },
+    { book: 15, start: 1701, end: 1715 },
     { book: 16, start: 1751, end: 1800 },
     { book: 17, start: 1801, end: 1820 },
-    { book: 18, start: 1850, end: 1861 },
+    { book: 18, start: 1851, end: 1861 },
     { book: 19, start: 1901, end: 1950 },
     { book: 20, start: 1951, end: 2000 },
     { book: 21, start: 2001, end: 2050 },
     { book: 22, start: 2051, end: 2100 },
     { book: 23, start: 2101, end: 2150 },
+    { book: 24, start: 2151, end: 2200 },
     { book: 25, start: 2201, end: 2250 },
+    { book: 26, start: 2251, end: 2300 },
     { book: 27, start: 2301, end: 2350 },
     { book: 28, start: 2351, end: 2400 },
+    { book: 29, start: 2401, end: 2405 },
+    { book: 30, start: 2451, end: 2500 },
   ];
 
   const getBookNumber = (couponNumber) => {
@@ -42,48 +50,66 @@ const Home = () => {
     setShowPartyPoppers(false);
 
     const validNumbers = [
-      // 1001-1050
+      // Book 1: 1001-1050
       ...Array.from({ length: 50 }, (_, i) => (1001 + i).toString().padStart(4, '0')),
-      // 1051-1100
+      // Book 2: 1051-1100
       ...Array.from({ length: 50 }, (_, i) => (1051 + i).toString().padStart(4, '0')),
-      // 1101-1150
+      // Book 3: 1101-1150
       ...Array.from({ length: 50 }, (_, i) => (1101 + i).toString().padStart(4, '0')),
-      // 1151-1161
+      // Book 4: 1151-1161
       ...Array.from({ length: 11 }, (_, i) => (1151 + i).toString().padStart(4, '0')),
-      // 1201-1250
+      // Book 5: 1201-1250
       ...Array.from({ length: 50 }, (_, i) => (1201 + i).toString().padStart(4, '0')),
-      // 1301-1350
+      // Book 6: 1251-1286
+      ...Array.from({ length: 36 }, (_, i) => (1251 + i).toString().padStart(4, '0')),
+      // Book 7: 1301-1350
       ...Array.from({ length: 50 }, (_, i) => (1301 + i).toString().padStart(4, '0')),
-      // 1351-1400
+      // Book 8: 1351-1400
       ...Array.from({ length: 50 }, (_, i) => (1351 + i).toString().padStart(4, '0')),
-      // 1401-1450
+      // Book 9: 1401-1450
       ...Array.from({ length: 50 }, (_, i) => (1401 + i).toString().padStart(4, '0')),
-      // 1451-1500
+      // Book 10: 1451-1500
       ...Array.from({ length: 50 }, (_, i) => (1451 + i).toString().padStart(4, '0')),
-      // 1601-1650
-      ...Array.from({ length: 50 }, (_, i) => (1601 + i).toString().padStart(4, '0')),
-      // 1651-1700
+      // Book 11: 1501-1550
+      ...Array.from({ length: 50 }, (_, i) => (1501 + i).toString().padStart(4, '0')),
+      // Book 12: 1551-1586
+      ...Array.from({ length: 36 }, (_, i) => (1551 + i).toString().padStart(4, '0')),
+      // Book 13: 1601-1650 (excluding 1603, 1605, 1621)
+      ...Array.from({ length: 50 }, (_, i) => (1601 + i).toString().padStart(4, '0')).filter(n => !['1603', '1605', '1621'].includes(n)),
+      // Book 14: 1651-1700
       ...Array.from({ length: 50 }, (_, i) => (1651 + i).toString().padStart(4, '0')),
-      // 1751-1800
+      // Book 15: 1701-1715
+      ...Array.from({ length: 15 }, (_, i) => (1701 + i).toString().padStart(4, '0')),
+      // Book 16: 1751-1800
       ...Array.from({ length: 50 }, (_, i) => (1751 + i).toString().padStart(4, '0')),
-      // 1801-1820 special case 1850 added to next range.
+      // Book 17: 1801-1820
       ...Array.from({ length: 20 }, (_, i) => (1801 + i).toString().padStart(4, '0')),
-      // 1850-1861
-      ...Array.from({ length: 12 }, (_, i) => (1850 + i).toString().padStart(4, '0')),
-      // 1951-2000
+      // Book 18: 1851-1861
+      ...Array.from({ length: 11 }, (_, i) => (1851 + i).toString().padStart(4, '0')),
+      // Book 19: 1901-1950
+      ...Array.from({ length: 50 }, (_, i) => (1901 + i).toString().padStart(4, '0')),
+      // Book 20: 1951-2000
       ...Array.from({ length: 50 }, (_, i) => (1951 + i).toString().padStart(4, '0')),
-      // 2001-2050
+      // Book 21: 2001-2050
       ...Array.from({ length: 50 }, (_, i) => (2001 + i).toString().padStart(4, '0')),
-      // 2051-2100
+      // Book 22: 2051-2100
       ...Array.from({ length: 50 }, (_, i) => (2051 + i).toString().padStart(4, '0')),
-      // 2101-2150
+      // Book 23: 2101-2150
       ...Array.from({ length: 50 }, (_, i) => (2101 + i).toString().padStart(4, '0')),
-      // 2201-2250
+      // Book 24: 2151-2200
+      ...Array.from({ length: 50 }, (_, i) => (2151 + i).toString().padStart(4, '0')),
+      // Book 25: 2201-2250
       ...Array.from({ length: 50 }, (_, i) => (2201 + i).toString().padStart(4, '0')),
-      // 2301-2350
+      // Book 26: 2251-2300
+      ...Array.from({ length: 50 }, (_, i) => (2251 + i).toString().padStart(4, '0')),
+      // Book 27: 2301-2350
       ...Array.from({ length: 50 }, (_, i) => (2301 + i).toString().padStart(4, '0')),
-      // 2351-2400
+      // Book 28: 2351-2400
       ...Array.from({ length: 50 }, (_, i) => (2351 + i).toString().padStart(4, '0')),
+      // Book 29: 2401-2405
+      ...Array.from({ length: 5 }, (_, i) => (2401 + i).toString().padStart(4, '0')),
+      // Book 30: 2451-2500
+      ...Array.from({ length: 50 }, (_, i) => (2451 + i).toString().padStart(4, '0')),
     ];
 
     const number = validNumbers[Math.floor(Math.random() * validNumbers.length)];
@@ -116,7 +142,7 @@ const Home = () => {
         <div className=""><img src="/ocym-shiels.png" alt="OCYM Shield" height={150} /></div>
         <div>
           <p className="eyebrow">Paliakara St. George Orthodox Church</p>
-          <h1 className="headline">Annual Lucky Draw</h1>
+          <h1 className="headline">Christmas Lucky Draw</h1>
           <p className="subhead">Tap the button to unveil the next winning ticket. Every roll stays true to the configured draw ranges.</p>
         </div>
       </header>
